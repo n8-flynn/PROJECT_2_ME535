@@ -84,11 +84,8 @@ nrbs.order = [k1 k2];
 plotNrbs(nrbs);
 %print('-dpdf','-painters','revolution1.pdf')
 if Gen_Stl == true 
-    nrbs_Spink.form='B-NURBS';
-    nrbs_Spink.dim = 3;
-    nrbs_Spink.number = [ncp_u, ncp_v];
-    nrbs_Spink.coefs = CPs_d3;  % CPs in homogeneous coordinates
-    nrbs_Spink.knots = {knots_u knots_v};
-    nrbs_Spink.order = [k1 k2];
-    NrbsSrf2IGES(nrbs_Spink,'mouth.igs','./')
+    fileStl = 'mouth.stl';
+    [tri,vtx]=buildTriVtx(nrbs,[10,10]); % triangulate NURBS
+    writeSTL(fileStl,'y',tri,vtx,'mode','ascii'); % write STL
+    [vtx,tri]=readSTL(fileStl,'y');% read STL file
 end

@@ -3,7 +3,7 @@ clc; clear; close all;
 surface = 1; 
 DisplayCP = false;
 DisplaySurf = true;
-Gen_Stl = false; 
+Gen_Stl = true; 
 N = 100; % Number of intervals in u and v direction (resolution)
 for  theta = 0:pi/4:(2*pi - pi/4)
 
