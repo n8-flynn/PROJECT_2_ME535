@@ -1,7 +1,7 @@
 % Copyright: Xiaoping Qian @ UW-Madison
 %% Mouth!
 clear; clc; 
-Gen_Stl = false; 
+Gen_Stl = true; 
 
 % profile 1
 D = [
@@ -85,7 +85,7 @@ plotNrbs(nrbs);
 %print('-dpdf','-painters','revolution1.pdf')
 if Gen_Stl == true 
     fileStl = 'mouth.stl';
-    [tri,vtx]=buildTriVtx(nrbs,[10,10]); % triangulate NURBS
+    [tri,vtx]=buildTriVtx(nrbs,[100,100]); % triangulate NURBS
     writeSTL(fileStl,'y',tri,vtx,'mode','ascii'); % write STL
     [vtx,tri]=readSTL(fileStl,'y');% read STL file
 end

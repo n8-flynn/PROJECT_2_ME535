@@ -2,9 +2,9 @@
 clc; clear; close all;
 surface = 1; 
 DisplayCP = false;
-DisplaySurf = true;
+DisplaySurf = false;
 Gen_Stl = true; 
-N = 100; % Number of intervals in u and v direction (resolution)
+N = 25; % Number of intervals in u and v direction (resolution)
 for  theta = 0:pi/4:(2*pi - pi/4)
 
     pumpkin_pts;
@@ -105,7 +105,7 @@ for  theta = 0:pi/4:(2*pi - pi/4)
             
             if Gen_Stl == true
                 filename = sprintf('pumpkin face %d.stl',surface);
-                mm2in = 25.4;
+                mm2in = 1;
                 surf2stl(filename,mm2in*xyz(:,:,1),mm2in*xyz(:,:,2),mm2in*xyz(:,:,3));
                 surface = surface + 1;
             end

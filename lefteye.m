@@ -74,6 +74,7 @@ nrbs.number = [ncp_u, 2];
 nrbs.coefs = CPs_d3;  % CPs in homogeneous coordinates
 nrbs.knots = {knots_u, knots_v};
 nrbs.order = [k1 k2];
+hold on; 
 
 plotNrbs(nrbs);
 %print('-dpdf','-painters','revolution1.pdf')
