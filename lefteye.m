@@ -82,5 +82,5 @@ if Gen_Stl == true
     fileStl = 'lefteye.stl';
     [tri,vtx]=buildTriVtx(nrbs,[10,10]); % triangulate NURBS
     writeSTL(fileStl,'y',tri,vtx,'mode','ascii'); % write STL
-    [vtx,tri]=readSTL(fileStl,'y');% read STL file
+%     [vtx,tri]=readSTL(fileStl,'y');% read STL file
 end

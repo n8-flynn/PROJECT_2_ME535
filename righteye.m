@@ -12,7 +12,8 @@ D = [
     1.4 3.5;
     0.75 4.25;
     0.25 3.125;
-    ];[rows, cols] = size(D);
+    ];
+[rows, cols] = size(D);
 k=2;
 n=rows;
 
@@ -79,7 +80,7 @@ plotNrbs(nrbs);
 %print('-dpdf','-painters','revolution1.pdf')
 if Gen_Stl == true 
     fileStl = 'righteye.stl';
-    [tri,vtx]=buildTriVtx(nrbs,[10,10]); % triangulate NURBS
+    [tri,vtx]=buildTriVtx(nrbs,[25,25]); % triangulate NURBS
     writeSTL(fileStl,'y',tri,vtx,'mode','ascii'); % write STL
-    [vtx,tri]=readSTL(fileStl,'y');% read STL file
+%     [vtx,tri]=readSTL(fileStl,'y');% read STL file
 end
