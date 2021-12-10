@@ -1,9 +1,9 @@
 %% Nathan Flynn - ME 535 - Project 1
-clc; clear; close all;
+%clc; clear; close all;
 surface = 1; 
 DisplayCP = false;
-DisplaySurf = false;
-Gen_Stl = true; 
+DisplaySurf = true;
+Gen_Stl = false; 
 N = 25; % Number of intervals in u and v direction (resolution)
 for  theta = 0:pi/4:(2*pi - pi/4)
 
@@ -97,7 +97,7 @@ for  theta = 0:pi/4:(2*pi - pi/4)
             
             if DisplaySurf == true 
                 p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3));
-                colormap default;
+                colormap jet;
                 p.EdgeColor=k*[1,0,0]/32; %'green'; %0.5*[1 1 1 ]
                 p.FaceAlpha=1; %0.75;
                 p.FaceColor = [0.5 0.5 0.75];
