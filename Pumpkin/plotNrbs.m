@@ -15,10 +15,11 @@ NBS=smplNrbs(SM,nrbs);
 set(gcf,'color','w');hold on;
 surf(NBS(:,:,1),NBS(:,:,2),NBS(:,:,3),...
     'edgecolor','none','facecolor',.7*[1,1,1]);
-plotNrbsKnt(nrbs);
-plotNrbsCp(nrbs)
+% plotNrbsKnt(nrbs);
+% plotNrbsCp(nrbs)
 axis equal tight off;view(3);
 camlight;lighting gouraud;
+hold on; 
 
 %%% #################################################
 function plotNrbsCp(nrbs)
@@ -36,6 +37,7 @@ for ii=1:size(cpc,2)  %%% CP in U direction
         'marker','o','markersize',8,...
         'markeredgecolor','k', 'markerfacecolor','r');
 end
+hold on;
 
 function plotNrbsKnt(nrbs)
 U=nrbs.knots{1};
@@ -89,3 +91,4 @@ if ~isempty(kntpcv)
             'linestyle','-','color','b','linewidth',1);
     end
 end
+hold on;

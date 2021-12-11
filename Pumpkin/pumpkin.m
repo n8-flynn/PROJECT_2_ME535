@@ -1,10 +1,9 @@
 %% Nathan Flynn - ME 535 - Project 1
-%clc; clear; close all;
-surface = 1; 
+surface = 1; %Starts with surface 1 when creating all the surfaces of the pumpkin.
 DisplayCP = false;
 DisplaySurf = true;
-Gen_Stl = false; 
-N = 25; % Number of intervals in u and v direction (resolution)
+Gen_Stl = true; 
+N = 50; % Number of intervals in u and v direction (resolution)
 for  theta = 0:pi/4:(2*pi - pi/4)
 
     pumpkin_pts;
@@ -124,5 +123,4 @@ for  theta = 0:pi/4:(2*pi - pi/4)
     end
 end
 hold on;
-view(90,0);
 

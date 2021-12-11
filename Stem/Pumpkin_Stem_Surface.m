@@ -1,7 +1,7 @@
 % Pumpkin Stem
-
+clc; clear;
 load Stem_Control_Points.mat;
-
+Gen_Stl = true;
 % u first
 
 Dx = [P1(1,1)  P1(2,1)  P1(3,1)  P1(4,1)  P1(5,1)  P1(6,1)  P1(7,1)  P1(8,1)  P1(9,1)  P1(10,1)  P1(11,1)  P1(12,1)  P1(13,1)  P1(14,1)  P1(15,1)  P1(16,1)  P1(17,1)  P1(18,1)  P1(19,1)  P1(20,1)  P1(21,1)  P1(22,1)  P1(23,1)  P1(24,1);       
@@ -74,7 +74,7 @@ hold on;
 %plot3(Dx,Dy,Dz,'r:s', 'MarkerFaceColor', 'r', 'MarkerSize',8);
 %plot3(Dx',Dy',Dz','r:s', 'MarkerFaceColor', 'r', 'MarkerSize',8);
 [Px,Py,Pz,U,V] = BsplineSurfInter(Dx,Dy,Dz,ku,kv,nu,nv);
-
+w = ones(19,24);
 CP = cat(3,Px',Py',Pz');
 CP = shiftdim(CP,2);
 
@@ -83,10 +83,27 @@ num = 20; % 80;
 
 plotNUBSsurface(ku-1,kv-1,U,V,CP,num);
 
+CPS = cat(3,Px', Py', Pz',w');
+CPS = shiftdim(CPS,2);
+
+k1 = ku;
+k2 = kv;
+nrbs.type   = 'Surface';
+nrbs.number = [nu, nv];
+nrbs.coefs = CPS ;  % CPs in homogeneous coordinates
+nrbs.knots = {U, V};
+nrbs.order = [k1 k2];
+
 % Convert the resulting surface into an IGES file
 % Matlab converts matrix into a linear list via row-first.
 % nCP = cat(2, reshape(Px,[nu*nv,1]),...
-%     reshape(Py,[nu*nv,1]), reshape(Pz,[nu*nv,1]));
+%      reshape(Py,[nu*nv,1]), reshape(Pz,[nu*nv,1]));
 % bsplineSurf2IGES(U, V, ku, kv,...
 %         nu, nv, nCP, 'surfInterp.igs')
-    
+
+if Gen_Stl == true 
+    fileStl = 'stem.stl';
+    [tri,vtx]=buildTriVtx(nrbs,[100,100]); % triangulate NURBS
+    writeSTL(fileStl,'nW',tri,vtx,'mode','ascii'); % write STL
+%     [vtx,tri]=readSTL(fileStl,'y');% read STL file
+end

@@ -1,17 +1,16 @@
 % Copyright: Xiaoping Qian @ UW-Madison
-%% Left eye!
+%% Nose!
 clear; clc; 
 Gen_Stl = true; 
+DisplayCP = false;
 
 % profile 1
 D = [
-    -0.25 3.125;
-    -0.5 3.25;
-    -0.55 3.5;
-    -0.75 3.333;
-    -1.4 3.5;
-    -0.75 4.25;
-    -0.25 3.125;
+    0 2.667;
+    0.333 2.5;
+    0 3;
+    -0.333 2.5;
+    0 2.667;
     ];
 [rows, cols] = size(D);
 k=2;
@@ -28,11 +27,13 @@ P1 =[x,P,w];
 order_u = 2;
 
 % do plot of control polygon
-Q = bsplineCurve(P1, order_u, knots_u, 50);
-plot3(P1(:,1),P1(:,2), P1(:,3),'r-s');
-hold on;
-plot3(Q(:,1),Q(:,2), Q(:,3),'b','linewidth',2);
-hold on;
+if DisplayCP == true
+    Q = bsplineCurve(P1, order_u, knots_u, 50);
+    plot3(P1(:,1),P1(:,2), P1(:,3),'r-s');
+    hold on;
+    plot3(Q(:,1),Q(:,2), Q(:,3),'b','linewidth',2);
+    hold on;
+end
 
 
 % profile 2
@@ -43,14 +44,16 @@ knots_v = [0 0 1 1];
 order_v = 2;
 
 %do plot of control polygon
-Q = bsplineCurve(P2, order_v, knots_v, 50);
-plot3(P2(:,1),P2(:,2), P2(:,3),'r-s');
-hold on;
-plot3(Q(:,1),Q(:,2), Q(:,3),'b','linewidth',2);
-axis equal;
-xlabel('x');
-ylabel('y');
-zlabel('z');
+if DisplayCP == true
+    Q = bsplineCurve(P2, order_v, knots_v, 50);
+    plot3(P2(:,1),P2(:,2), P2(:,3),'r-s');
+    hold on;
+    plot3(Q(:,1),Q(:,2), Q(:,3),'b','linewidth',2);
+    axis equal;
+    xlabel('x');
+    ylabel('y');
+    zlabel('z');
+end
 
 [rows, cols] = size(P1);
 Cps = zeros(rows*2,cols);
@@ -74,13 +77,14 @@ nrbs.number = [ncp_u, 2];
 nrbs.coefs = CPs_d3;  % CPs in homogeneous coordinates
 nrbs.knots = {knots_u, knots_v};
 nrbs.order = [k1 k2];
-hold on; 
 
 plotNrbs(nrbs);
+hold on;
+
 %print('-dpdf','-painters','revolution1.pdf')
 if Gen_Stl == true 
-    fileStl = 'lefteye.stl';
+    fileStl = 'nose.stl';
     [tri,vtx]=buildTriVtx(nrbs,[10,10]); % triangulate NURBS
     writeSTL(fileStl,'y',tri,vtx,'mode','ascii'); % write STL
-%     [vtx,tri]=readSTL(fileStl,'y');% read STL file
+    [vtx,tri]=readSTL(fileStl,'n');% read STL file
 end
