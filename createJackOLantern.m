@@ -13,3 +13,4 @@ nose; %Creates the nose of the pumpkin using nurbs extrusion
 lefteye; %Creates the left eye of the pumpkin using nurbs extrusion 
 righteye; %Creates the right eye of the pumpkin using nurbs extrusion 
 Pumpkin_Stem_Surface; %Creates the stem of the pumpkin
+Pumpkin_connect; %Creates the surface between the stem of the pumpkin and the pumpkin it's self.
