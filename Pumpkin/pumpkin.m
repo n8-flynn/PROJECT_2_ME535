@@ -3,18 +3,17 @@ surface = 1; %Starts with surface 1 when creating all the surfaces of the pumpki
 DisplayCP = false;
 DisplaySurf = true;
 Gen_Stl = true; 
-N = 50; % Number of intervals in u and v direction (resolution)
-for  theta = 0:pi/4:(2*pi - pi/4)
-
+N = 10; % Number of intervals in u and v direction (resolution)
+for  theta = 0:pi/4
     pumpkin_pts;
 
     quad_body = cat(3,[
-                          1 2 3 4; 5 6 7 8; 9 10 11 12; 13 14 15 16] , [
-                          13 14 15 16; 17 18 19 20;21 22 23 24;25 26 27 28] , [
-                          1 2 3 4; 5 29 30 31; 9 32 33 34; 13 35 36 37] , [ 
-                          13 35 36 37; 17 38 39 40; 21 41 42 43; 25 26 27 28] , [ 
-                          1 2 3 4; 8 44 45 46; 12 47 48 49; 16 50 51 52] , [ 
-                          16 50 51 52; 20 53 54 55; 24 56 57 58; 25 26 27 28]);
+                          1 2 3 4; 5 6 7 8; 9 10 11 12; 13 14 15 16] , [ %Patch 1
+                          13 14 15 16; 17 18 19 20;21 22 23 24;25 26 27 28] , [ %Patch 2
+                          1 2 3 4; 5 29 30 31; 9 32 33 34; 13 35 36 37] , [  %Patch 3
+                          13 35 36 37; 17 38 39 40; 21 41 42 43; 25 26 27 28] , [ %Patch 4
+                          1 2 3 4; 8 44 45 46; 12 47 48 49; 16 50 51 52] , [  %Patch 5
+                          16 50 51 52; 20 53 54 55; 24 56 57 58; 25 26 27 28]); %Patch 6
 
 
     quads = quad_body;  %           
@@ -119,7 +118,7 @@ for  theta = 0:pi/4:(2*pi - pi/4)
             end
     end
     if DisplaySurf  == true 
-        shading interp
+%         shading interp
     end
 end
 hold on;
