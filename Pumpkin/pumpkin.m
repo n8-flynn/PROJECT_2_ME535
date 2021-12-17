@@ -3,8 +3,8 @@ surface = 1; %Starts with surface 1 when creating all the surfaces of the pumpki
 DisplayCP = false;
 DisplaySurf = true;
 Gen_Stl = true; 
-N = 10; % Number of intervals in u and v direction (resolution)
-for  theta = 0:pi/4
+N = 50; % Number of intervals in u and v direction (resolution)
+for  theta = 0:pi/4:(2*pi-pi/4)
     pumpkin_pts;
 
     quad_body = cat(3,[
@@ -118,7 +118,7 @@ for  theta = 0:pi/4
             end
     end
     if DisplaySurf  == true 
-%         shading interp
+        shading interp
     end
 end
 hold on;
