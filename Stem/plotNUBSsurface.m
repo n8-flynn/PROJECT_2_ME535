@@ -38,7 +38,9 @@ for j = 1 : num
   end
 end
 
-p = surf(X,Y,Z);
+% p = surf(X,Y,Z);
+
+surf(X,Y,Z,'FaceColor',[0.2 0 0 ],'FaceAlpha',1, 'EdgeColor', 'none');
 %shading interp
 
         % style 1 
@@ -47,7 +49,7 @@ p = surf(X,Y,Z);
 %          p.FaceColor='green';
 
 % style 2
-        p.FaceColor = [0.5 0.5 0.75];
+%         p.FaceColor = [0.5 0.5 0.75];
 %         p.FaceAlpha= 1; %0.75 %.75;
 %         p.EdgeColor = 'green'; %[0.5 0.5 0.5] % 'green'; %'interp';
 %         p.LineStyle = '-' %'-'; %'none';'
