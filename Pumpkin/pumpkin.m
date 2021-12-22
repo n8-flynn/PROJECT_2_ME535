@@ -2,8 +2,9 @@
 function pumpkin(Gen_Stl, DisplayCP)
     surface = 1; %Starts with surface 1 when creating all the surfaces of the pumpkin.
     DisplaySurf = true;
-    N = 50; % Number of intervals in u and v direction (resolution)
-    for  theta = 0:pi/4:(2*pi -pi/4)
+    N = 10; % Number of intervals in u and v direction (resolution)
+%     for  theta = 0:pi/4:(2*pi -pi/4)
+    for theta = 0:pi/4:(2*pi - pi/4)
         pumpkin_pts;
 
         quad_body = cat(3,[
@@ -93,35 +94,35 @@ function pumpkin(Gen_Stl, DisplayCP)
                 % plot the patch
 
                 if DisplaySurf == true 
-    %                 if k == 1
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','r','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                 end
-    %                 
-    %                 if k == 2
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','g','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                 end
-    %                 
-    %                 if k == 3
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','b','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                 end
-    %                 
-    %                  if k == 4
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','c','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                  end
-    %                  
-    %                  if k == 5
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','m','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                  end
-    %                 
-    %                  if k == 5
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','y','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                  end
-    %                  
-    %                  if k == 6
-    %                     p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','w','FaceAlpha',0.5, 'EdgeColor', 'k');
-    %                  end
+%                     if k == 1
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','r','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                     end
+%                     
+%                     if k == 2
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','g','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                     end
+%                     
+%                     if k == 3
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','b','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                     end
+%                     
+%                      if k == 4
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','c','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                      end
+%                      
+%                      if k == 5
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','k','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                      end
+%                     
+%                      if k == 5
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','y','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                      end
+%                      
+%                      if k == 6
+%                         p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor','k','FaceAlpha',0.5, 'EdgeColor', 'k');
+%                      end
 
-                      p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor',[0.8500 0.3250 0.0980],'FaceAlpha',0.75, 'EdgeColor', 'none');
+                      p = surf(xyz(:,:,1),xyz(:,:,2),xyz(:,:,3),'FaceColor',[0.8500 0.3250 0.0980],'FaceAlpha',1, 'EdgeColor', 'k');
     %                 p.EdgeColor=k*[1,0,0]/32; %'green'; %0.5*[1 1 1 ]
     %                 p.FaceAlpha=1; %0.75;
     %                 p.FaceColor = [0.5 0.5 0.75];
@@ -147,7 +148,7 @@ function pumpkin(Gen_Stl, DisplayCP)
     %         shading interp
         end
     end
-    % legend('Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6');
+%     legend('Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6');
     axis off;
     view(112.5, 0);
     hold on;

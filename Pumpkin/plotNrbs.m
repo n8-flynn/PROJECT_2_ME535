@@ -14,7 +14,7 @@ NBS=smplNrbs(SM,nrbs);
 %figure;
 set(gcf,'color','w');hold on;
 surf(NBS(:,:,1),NBS(:,:,2),NBS(:,:,3),...
-    'edgecolor','none','facecolor',[0 0 0]);
+    'edgecolor','w','facecolor',[0 0 0]);
 % plotNrbsKnt(nrbs);
 % plotNrbsCp(nrbs)
 axis equal tight off;view(3);
