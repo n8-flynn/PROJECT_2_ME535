@@ -40,7 +40,7 @@ end
 
 % p = surf(X,Y,Z);
 
-surf(X,Y,Z,'FaceColor',[0.2 0 0 ],'FaceAlpha',1, 'EdgeColor', 'none');
+surf(X,Y,Z,'FaceColor',[0.2 0 0 ],'FaceAlpha',1, 'EdgeColor', 'w');
 %shading interp
 
         % style 1 
